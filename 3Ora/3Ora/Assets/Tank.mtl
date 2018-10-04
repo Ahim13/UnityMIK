@@ -1,0 +1,12 @@
+newmtl Tank
+Kd 0.4245283 0 0
+d 1
+
+newmtl Tank_1
+Kd 0.6698113 0 0.01801237
+d 1
+
+newmtl TankPipe
+Kd 0 0.08653738 0.8773585
+d 1
+

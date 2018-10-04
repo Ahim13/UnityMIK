@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\ahim1\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\ahim1\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ahim1\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_3Ora.1719103925.00" t="ExcludeRecursive" />
+    <e p="G:\Unity\Iskola\GitMIK\3Ora\3Ora" t="IncludeRecursive">
+      <e p="3Ora.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scene1" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="CameraFollower.cs" t="Include" />
+            <e p="CharacterController.cs" t="Include" />
+            <e p="PathFinder.cs" t="Include" />
+            <e p="PointsManager.cs" t="Include" />
+            <e p="Spawner.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="UnlitFade.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Scene2" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="AutoDestroyParticle.cs" t="Include" />
+            <e p="OutCheckcer.cs" t="Include" />
+            <e p="PlayerController.cs" t="Include" />
+            <e p="Rotate.cs" t="Include" />
+            <e p="SpawnOnDestroy.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scene3" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="HitChecker.cs" t="Include" />
+            <e p="TankController.cs" t="Include" />
+          </e>
+        </e>
+        <e p="SceneTest" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="DestroyTest.cs" t="Include" />
+            <e p="ForceTest.cs" t="Include" />
+            <e p="InputTest.cs" t="Include" />
+            <e p="InstantiateTest.cs" t="Include" />
+            <e p="RotateTest.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
