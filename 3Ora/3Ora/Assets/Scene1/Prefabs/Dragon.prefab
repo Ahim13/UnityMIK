@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dd1615575e4ca4ca4c7f0c3717a47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody2D: {fileID: 0}
-  _speed: 0
+  _rigidbody2D: {fileID: 50426582144230836}
+  _speed: 10
 --- !u!212 &212816852896969078
 SpriteRenderer:
   m_ObjectHideFlags: 1

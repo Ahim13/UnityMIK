@@ -10,6 +10,6 @@ public class CameraFollower : MonoBehaviour
 
     private void Update()
     {
-        //TODO: Make the camera follow the target with a given distance (multiple solutions) (if you want, then it can be done without C# code)
+        gameObject.transform.position = Target.position + PositionFromTarget;
     }
 }

@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnObjectCoroutine());
-        //InvokeRepeating("SpawnObject", 0, _timeBetweenSpawns); //Alternative way --> bad
+        //InvokeRepeating("SpawnObject", 0, _timeBetweenSpawns); //TODO:
     }
 
     private IEnumerator SpawnObjectCoroutine()
@@ -27,6 +27,6 @@ public class Spawner : MonoBehaviour
     private void SpawnObject()
     {
         var randPos = new Vector2(Random.Range(_spawnArea.bounds.min.x, _spawnArea.bounds.max.x), Random.Range(_spawnArea.bounds.min.y, _spawnArea.bounds.max.y));
-        Instantiate(_prefabToSpawn, randPos, Quaternion.identity);
+        Instantiate(_prefabToSpawn, randPos, Quaternion.identity); //TODO: ELmagyarazni az Instanstiate-t
     }
 }

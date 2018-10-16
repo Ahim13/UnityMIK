@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speed = 5;
     [SerializeField] private float _jumpForce = 5;
 
+    private Rigidbody _rigidbody;
+
     void Start()
     {
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -16,11 +19,17 @@ public class PlayerController : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
         
-        //TODO: Move the ball with the given input (use rigidbody - AddForce())
+        _rigidbody.AddForce(new Vector3(horizontal, 0, vertical) * _speed);
         
-        
-        //TODO: On Space down the ball should jump
+        if(Input.GetKeyDown(KeyCode.Space))
+            _rigidbody.AddForce(new Vector3(0,_jumpForce,0));
     }
 
-    //TODO: Destroy the object it collided with
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectible"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }

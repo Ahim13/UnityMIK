@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class OutCheckcer : MonoBehaviour
 {
-    //TODO: if ball is out then reset its speed and position to zero
+    private void OnTriggerEnter(Collider other)
+    {
+        other.transform.position = Vector3.zero + new Vector3(0, 1, 0);
+        other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
 }

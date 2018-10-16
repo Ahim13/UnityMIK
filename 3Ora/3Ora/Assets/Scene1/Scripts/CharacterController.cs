@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    //TODO: Create physics material for the Wall so the character wont stuck then use it
-    
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed = 2;
 
@@ -17,8 +15,8 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //TODO: reset velocity on Y axis and dont change the X value
-            //TODO AddForece on Y axis (for example 50)
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+            _rigidbody2D.AddForce(new Vector2(0, 50));
         }
     }
 
@@ -57,11 +55,12 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //TODO: When triggered by Coin tagged GameObject add 1 to Score adn destroy it after the audio.Play() (swap your condition with the true in if(true))
         Debug.Log("CoinPicked");
-        if (true)
+        if (other.CompareTag("Coin"))
         {
+            PointsManager.Instance.AddScore(1);
             GetComponent<AudioSource>()?.Play();
+            Destroy(other.gameObject);
         }
     }
 }
