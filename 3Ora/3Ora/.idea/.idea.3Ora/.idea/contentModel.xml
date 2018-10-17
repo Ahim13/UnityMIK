@@ -10,7 +10,9 @@
       <e p="Assets" t="Include">
         <e p="Scene1" t="Include">
           <e p="Scripts" t="Include">
+            <e p="CameraBackground.cs" t="Include" />
             <e p="CameraFollower.cs" t="Include" />
+            <e p="CameraParallax.cs" t="Include" />
             <e p="CharacterController.cs" t="Include" />
             <e p="PathFinder.cs" t="Include" />
             <e p="PointsManager.cs" t="Include" />
@@ -35,6 +37,15 @@
             <e p="TankController.cs" t="Include" />
           </e>
         </e>
+        <e p="Scene4" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Enemy.cs" t="Include" />
+            <e p="EnemySpawner.cs" t="Include" />
+            <e p="GameManager4.cs" t="Include" />
+            <e p="PlayerController4.cs" t="Include" />
+            <e p="ScreenWrap.cs" t="Include" />
+          </e>
+        </e>
         <e p="SceneTest" t="Include">
           <e p="Scripts" t="Include">
             <e p="DestroyTest.cs" t="Include" />
@@ -42,6 +53,7 @@
             <e p="InputTest.cs" t="Include" />
             <e p="InstantiateTest.cs" t="Include" />
             <e p="RotateTest.cs" t="Include" />
+            <e p="Tests4.cs" t="Include" />
           </e>
         </e>
       </e>

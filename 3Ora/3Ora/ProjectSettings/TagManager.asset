@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Bullet
+  - Enemy
+  - Coin
+  - Destroyer
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - 
   - PostProcessing
   - Ignore
-  - 
-  - 
+  - Player
+  - Laser
   - 
   - 
   - 
