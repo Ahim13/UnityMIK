@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
 
@@ -21,23 +22,28 @@ public class Enemy : MonoBehaviour
         _rigidbody2D.velocity = new Vector2(0, -_speed);
     }
 
-    //TODO: on Bullet Instantiate particels, add score basde won enemys worth, destroy particle after 1.2f and other destroys also needed (figure out which objects need to be destroyed)
-    //TODO: on Player destroy Enemy and call Died method
-    //TODO: on Destroyer Score negative and destroy enemy (multiple ways to do it, dont need to use this OnTrigger if you dont want to)
     private void OnTriggerEnter2D(Collider2D other)
 
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            var particle = Instantiate(_particles, transform.position, Quaternion.identity);
+            GameManager4.Instance.Score(_scoreWorth);
+            Destroy(particle, 1.2f);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
         
         if (other.gameObject.CompareTag("Player"))
         {
             GameManager4.Instance.Died();
+            Destroy(gameObject);
         }
         
         if (other.gameObject.CompareTag("Destroyer"))
         {
+            GameManager4.Instance.Score(-_scoreWorth);
+            Destroy(gameObject);
         }
     }
 }

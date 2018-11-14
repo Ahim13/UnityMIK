@@ -23,7 +23,10 @@ public class GameManager4 : MonoBehaviour
 
     private void Awake()
     {
-
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(gameObject);
     }
 
     private void Start()
@@ -31,10 +34,12 @@ public class GameManager4 : MonoBehaviour
         ResetGame();
     }
 
-    //TODO: -1 lives then set one gameobject from lives array to false then ResetScene
     public void Died()
     {
+        _livesCounter--;
+        _lives[_livesCounter].SetActive(false);
 
+        StartCoroutine(ResetScene());
     }
 
     private IEnumerator ResetScene()
@@ -58,9 +63,10 @@ public class GameManager4 : MonoBehaviour
         }
     }
 
-    //TODO: Score point and write it out to text
     public void Score(int score)
     {
+        _POINTS += score;
 
+        _scoreText.text = _POINTS.ToString();
     }
 }

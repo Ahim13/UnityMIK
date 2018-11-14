@@ -383,7 +383,7 @@ MonoBehaviour:
   _pipeEnd: {fileID: 1623213080995330}
   _headRotateSpeed: 2
   _pipeRotateSpeed: 2
-  _powerToAdd: 25
+  _powerToAdd: 100
   _maxPower: 300
   projectile: {fileID: 1518985816384470, guid: 0188dc05c68a25d4a8f81b054096612d, type: 2}
   _power: 0

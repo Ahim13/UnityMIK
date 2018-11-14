@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class PlayerController4 : MonoBehaviour
 {
-    //TODO:
-    //variables needed:
-    //speed, gameobject for laserPrefab, laserspeed, Sprite arrays
-    //speed, gameobject for laserPrefab, laserspeed, Sprite arrays
-    
+    [SerializeField] private float _speed;
+    [SerializeField] private GameObject _laser;
+    [SerializeField] private float _laserSpeed = 5;
+    [SerializeField] private Sprite[] _spaceShipStates;
+    [SerializeField] private Sprite[] _spaceShipSprites;
+
+    private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
 
     private bool _damaged = false;
 
@@ -17,60 +20,64 @@ public class PlayerController4 : MonoBehaviour
 
     private void Awake()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _SPACESHIP_STATE = 0;
         _damaged = false;
+        _spriteRenderer.sprite = _spaceShipStates[_SPACESHIP_STATE];
     }
 
 
-    //TODO: On space down shoot laser
     private void Update()
     {
         Controll();
-        if (false)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
     }
-    
 
-    //TODO: instantiate Bullet, add speed to it, destroy it after 3 sec
     private void Shoot()
     {
-        
+        var bullet = Instantiate(_laser, transform.position, Quaternion.identity);
+
+        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _laserSpeed);
+        Destroy(bullet, 3);
     }
 
-    //TODO: controll spaceship with WASD, 
     private void Controll()
     {
-        var horizontal = Input.GetAxisRaw("Horizontal"); // Possible values: 1,0,-1
-        var vertical = Input.GetAxisRaw("Vertical"); // Possible values: 1,0,-1
+        var horizontal = Input.GetAxisRaw("Horizontal");
+        var vertical = Input.GetAxisRaw("Vertical");
 
+        _rigidbody2D.velocity = new Vector2(horizontal * _speed, vertical * _speed);
 
         if (_damaged)
             return;
 
-        //TODO: change sprite
         if (Math.Abs(horizontal - 1) < 0.1f)
         {
+            _spriteRenderer.sprite = _spaceShipSprites[1];
         }
         else if (Math.Abs(horizontal - (-1)) < 0.1f)
         {
+            _spriteRenderer.sprite = _spaceShipSprites[2];
         }
         else
         {
+            _spriteRenderer.sprite = _spaceShipSprites[0];
         }
     }
 
-    
-    //TODO: change sprite to damaged sprite when life is 1
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (false)
+            if (GameManager4.Instance.LivesCounter == 1)
             {
                 _damaged = true;
                 _SPACESHIP_STATE = 1;
+                _spriteRenderer.sprite = _spaceShipStates[_SPACESHIP_STATE];
             }
         }
     }

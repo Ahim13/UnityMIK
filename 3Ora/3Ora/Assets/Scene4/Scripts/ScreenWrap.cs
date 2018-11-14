@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ScreenWrap : MonoBehaviour
 {
+    private Renderer _render;
     private Camera _cam;
 
 
     private void Awake()
     {
+        _render = GetComponent<SpriteRenderer>();
         _cam = Camera.main;
     }
 

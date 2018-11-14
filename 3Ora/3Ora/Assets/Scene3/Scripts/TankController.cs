@@ -11,13 +11,13 @@ public class TankController : MonoBehaviour
 
     [SerializeField] private float _headRotateSpeed = 2;
     [SerializeField] private float _pipeRotateSpeed = 2;
-    [SerializeField] private float _powerToAdd = 20;
+    [SerializeField] private float _powerToAdd = 100;
     [SerializeField] private float _maxPower = 100;
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private float _power = 0.0F;
-
-
+    
+    
     [SerializeField] private float _timeStep = 0.2F;
     [SerializeField] private float _maxTime = 10F;
 
@@ -29,7 +29,10 @@ public class TankController : MonoBehaviour
     private void Start()
     {
         _rotationY = _pipe.transform.eulerAngles.x;
+        _power = 0;
+
         _lineRenderer = GetComponent<LineRenderer>();
+       
     }
 
     void Update()
@@ -65,18 +68,20 @@ public class TankController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            //TODO: Implement Power incrementing
-            //and if you can Clamp the value
+            _power += Time.deltaTime * _powerToAdd;
+            _power = Mathf.Clamp(_power, 0, _maxPower);
 
             PlotTrajectory(_pipeEnd.transform.position, _pipeEnd.transform.forward * _power, _timeStep, (_maxTime));
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            //TODO: Summon prefab then give it initial speed,
-            //then destroy it after 5-7 second if you can
+            GameObject projectileCopy = Instantiate(projectile, _pipeEnd.transform.position, transform.rotation);
             var newForce = _pipeEnd.transform.forward * _power;
+//            projectileCopy.GetComponent<Rigidbody>().AddForce(newForce);
+            projectileCopy.GetComponent<Rigidbody>().velocity = newForce;
             _power = Time.deltaTime;
+            Destroy(projectileCopy, 7);
         }
     }
 
@@ -96,7 +101,6 @@ public class TankController : MonoBehaviour
             arcArray.Add(pos);
             prev = pos;
         }
-
         _lineRenderer.positionCount = arcArray.Count;
         _lineRenderer.SetPositions(arcArray.ToArray());
     }

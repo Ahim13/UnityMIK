@@ -20,10 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4849704579031960}
   - component: {fileID: 212423897156256488}
+  - component: {fileID: 50050125801385640}
+  - component: {fileID: 58507502128401506}
   - component: {fileID: 114787772323298660}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +43,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50050125801385640
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800699520527126}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &58507502128401506
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800699520527126}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.455
 --- !u!114 &114787772323298660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,9 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f355eaed39533498a5eb6225cb548a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 2
   _particles: {fileID: 1133390448833436, guid: d945e9a9bd32f35479f6f39c5ed2e519, type: 2}
-  _scoreWorth: 0
 --- !u!212 &212423897156256488
 SpriteRenderer:
   m_ObjectHideFlags: 1
